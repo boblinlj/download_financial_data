@@ -1,8 +1,9 @@
-from download_data import download_from_sec_api
+from download_data import sec_api
+from stock_population import sec_pop
 
-# cik = get_sec_ticker_mapping()[100]
-# url = build_url(cik)
-# print(url)
-# request_api(url)
+sec_client = sec_api.SecApiClient('boblinlj@gmail.com')
+cik_list = sec_pop.get_sec_ticker_mapping()
 
-download_from_sec_api.write_json_to_file('text','test')
+for cik in cik_list:
+    result = sec_client.get_factor(cik)
+    sec_api.create_staging_file(result,cik)
