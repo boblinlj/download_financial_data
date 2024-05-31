@@ -51,7 +51,7 @@ class SecApiClient():
         url = self.request_api(cik)
         return self.request_api(url)
 
-
+ 
 
 if __name__ == '__main__':
     pass
