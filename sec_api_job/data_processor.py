@@ -46,7 +46,7 @@ class SecFileProcessor():
         
         if len(stock_data) > 0:
             stock_df = pd.concat(stock_data, axis=0)
-            stock_df.to_csv('check.csv',index=False)
+            # stock_df.to_csv('check.csv',index=False)
             return stock_df
         else:
             return pd.DataFrame()
@@ -81,4 +81,4 @@ class MySqlClient():
                   if_exists='append',
                   index=insert_index,
                   method='multi',
-                  chunksize=1)
+                  chunksize=100)
